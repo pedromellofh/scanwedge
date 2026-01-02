@@ -210,6 +210,53 @@ enum class BarcodeTypes(val code: String) {
                 else -> UNKNOWN
             }
         }
+
+        // types listed in https://en.urovo.com/developer/index.html
+        fun fromUrovoCode(codeId: String?): BarcodeTypes {
+            return when(codeId) {
+                "Code39" -> CODE39
+                "Code93" -> CODE93
+                "Code128" -> CODE128
+                "Codabar" -> CODABAR
+//                "Discrete 2/5" -> UNKNOWN
+//                "Matrix 2/5" -> UNKNOWN
+                "Interleaved-2of5" -> I2OF5
+                "UPC-A" -> UPCA
+                "UPC-E" -> UPCE0
+                "UPC-E1" -> UNKNOWN
+                "EAN-13" -> EAN13
+                "EAN-8" -> EAN8
+//                "MSI" -> UNKNOWN
+                "GS1 Databar-14" -> GS1_DATABAR
+                "GS1 Databar Limited" -> GS1_DATABAR
+                "GS1 Databar Expanded" -> GS1_DATABAR_EXPANDED
+                "Code49" -> UNKNOWN
+                "PDF-417" -> PDF417
+                "Datamatrix" -> DATAMATRIX
+                "Maxicode" -> MAXICODE
+//                "Trioptic" -> UNKNOWN
+//                "Code11" -> UNKNOWN
+//                "Code32" -> UNKNOWN
+//                "MicroPDF417" -> UNKNOWN
+//                "Composite Code" -> UNKNOWN
+                "QRCode" -> QRCODE
+                "Aztec" -> AZTEC
+//                "Chinese 2/5." -> UNKNOWN
+//                "Postal Code" -> UNKNOWN
+//                "Postal Planet" -> UNKNOWN
+//                "Postal Postnet" -> UNKNOWN
+//                "Postal USPS 4-State" -> UNKNOWN
+//                "Postal UPU FICS" -> UNKNOWN
+//                "Postal Royal Mail" -> UNKNOWN
+//                "Australian Postal" -> UNKNOWN
+//                "Kix Postal" -> UNKNOWN
+//                "Japan Postal" -> UNKNOWN
+//                "CC-A/B" -> UNKNOWN
+//                "CC-C" -> UNKNOWN
+                "GS1-128" -> EAN128
+                else -> UNKNOWN
+            }
+        }
     }
 
     // A function that returns the zebra implementation name of the barcode type
