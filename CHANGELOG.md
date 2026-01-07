@@ -56,3 +56,6 @@
 * Log adjustment possibility in android component
 * Fixed some battery decommission calculations
 * Added battery extended info fetching in example app
+
+## 1.1.2
+* Added support for Urovo devices thanks to @pedromellofh
