@@ -67,7 +67,6 @@ class ScanwedgePlugin(private var log: Logger?=null): FlutterPlugin, MethodCallH
   }
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    log=AndroidLogger()
     log?.d(TAG, "onAttachedToEngine-Start")
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "scanwedge")
     channel.setMethodCallHandler(this)
@@ -114,7 +113,7 @@ class ScanwedgePlugin(private var log: Logger?=null): FlutterPlugin, MethodCallH
           log?.i(TAG, "createProfile: barcodes: $barcodes")
           // convert the list of barcodes to a list of BarcodePlugin
           for(barcode in barcodes){
-            val barcodePlugin=BarcodePlugin.createBarcodePlugin(barcode)
+            val barcodePlugin=BarcodePlugin.createBarcodePlugin(barcode, log)
             if(barcodePlugin!=null) barcodeList.add(barcodePlugin)
           }
         }

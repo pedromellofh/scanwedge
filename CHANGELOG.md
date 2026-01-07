@@ -51,3 +51,8 @@
 * Added stopMonitoringBatteryStatus function
 * Various bugfixes and code cleanups
 * Fixed Fixes Rokke/scanwedge#9
+
+## 1.1.1
+* Log adjustment possibility in android component
+* Fixed some battery decommission calculations
+* Added battery extended info fetching in example app

@@ -67,7 +67,7 @@ class ScanwedgeChannel {
       };
 
   Future<void> _methodHandler(MethodCall call) async {
-    debugPrint("_methodHandler($call, ${call.arguments})-${call.method}");
+    // debugPrint("_methodHandler($call, ${call.arguments})-${call.method}");
     try {
       switch (call.method) {
         case "scan":
