@@ -164,7 +164,7 @@ class _MyAppState extends State<MyApp> {
                 'trigger' => _triggerScan(),
                 'enable' => _scanwedgePlugin?.enableScanner(),
                 'disable' => _scanwedgePlugin?.disableScanner(),
-                'battery' => _scanwedgePlugin?.getExtendedBatteryStatus().then((status) => log('Battery status(${status?.batteryDecommissionThreshold}): $status')),
+                'battery' => _scanwedgePlugin?.getExtendedBatteryStatus().then((status) => log('Battery status(${status?.batteryDecommissionPercentageLeft}): $status')),
                 'monitor' => _activateBatteryMonitor(),
                 'exit' => exit(0),
                 _ => null,
