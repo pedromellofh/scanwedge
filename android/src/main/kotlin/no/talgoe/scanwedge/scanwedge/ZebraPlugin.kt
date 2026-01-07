@@ -66,13 +66,14 @@ class ZebraPlugin(private val scanW: ScanwedgePlugin, private val log: Logger?) 
         "ratedcapacity"->"ratedCapacity" to value                                               // [Power,Power+] Rated Capacity of the Battery(mAh).
         "mfd"->"mfd" to value                                                                   // [Power,Power+] Battery Manufacture Date(yyyy-mm-dd).
         "base_cumulative_charge"->"baseCumulativeCharge" to value                               // [Power] Cumulative charge using Zebra charging equipment only(mAh).
+        "base_cumulative_charege"->"baseCumulativeCharge" to value                              // TC25 misspelling
         "partnumber"->"partNumber" to value                                                     // [Power,Power+] Part Number for Battery Prefix is ’21-” or “82-”. Sample: 21-xxxxx-01 Rev. X.
         "serialnumber"->"serialNumber" to value                                                 // [Power,Power+] Battery Serial Number This value shall match the value showing on the physical label of the battery.
         "battery_decommission"->"batteryDecommission" to value                                  // [Power,Power+] Decommission status of the battery (0=Battery good 1=Decommissioned Battery 2=Status Unknown).
         "total_cumulative_charge"->"totalCumulativeCharge" to value                             // [Power+] Cumulative charge using ALL (Zebra or Non-Zebra) charging equipment(mAh).
         "seconds_since_first_use"->"secondsSinceFirstUse" to value                              // [Power+] Number of seconds passed since the battery was placed in a charger/terminal for the first time(secs).
         "present_capacity"->"presentCapacity" to value                                          // [Power+] Maximum amount of charge that could be pulled from the battery under the present discharge conditions if the battery is fully charged(mAh).
-        "health_percentage"->"healthPercentage" to value                                        // [Power+] Battery health indicator in percentage (0 to 100)(%).
+        "health_percentage"->"healthPercentage" to value                                        // [Power+] Battery health indicator of decommission in percentage (0 to 100)(%).
         "time_to_empty"->"timeToEmpty" to value                                                 // [Power+] Remaining time until the device becomes unusable under current discharge conditions. If the returned value is 65535, then time_to_empty is considered to be unknown(mins).
         "time_to_full"->"timeToFull" to value                                                   // [Power+] Time until battery is fully charged under present charging conditions. If the returned value is 65535, then time_to_full is considered to be unknown(mins).
         "present_charge"->"presentCharge" to value                                              // [Power+] Amount of usable charge remaining in the battery under current discharge conditions(mAh).
@@ -91,10 +92,6 @@ class ZebraPlugin(private val scanW: ScanwedgePlugin, private val log: Logger?) 
         "backup_power_type"->"backupPowerType" to value                                         // 
         "usb_liquid_status"->"usbLiquidStatus" to value                                         // Boolean value indicating if the USB port is in a liquid state. Possible values: true=USB port is in a liquid state, false=USB port is not in a liquid state.
 
-        /*  ?? What is this
-        extraMap: {screenactiveduration: 580, battery_percent_decommission_threshold: 80, maxbatterytemp: 600, minbatterytemp: -140, chargingduration: 2091, timesincelastcharge: 2091, lastchargelength: 0,
-        timeremaining: 506, rebootcount: 29, bkvoltage: 0, deviceoffduration: 0, deviceonduration: 20
-         */
         else->null
       }
     }

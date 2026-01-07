@@ -5,7 +5,6 @@ import android.content.IntentFilter
 import android.content.BroadcastReceiver
 import android.os.BatteryManager
 import android.os.Build
-import android.util.Log
 import android.content.Context
 import android.content.ContextWrapper
 
@@ -20,7 +19,7 @@ class BatteryMonitor(private val scanW: ScanwedgePlugin, private val log: Logger
         } else {
             context.registerReceiver(batteryDataReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED)).also { isReceiverRegistered = true }
         }
-        Log.d(TAG, "monitorBatteryStatus: ${batteryStatus?.toUri(0)}")
+        log?.d(TAG, "monitorBatteryStatus: ${batteryStatus?.toUri(0)}")
     }
     fun stopMonitoringBatteryStatus(context: Context) {
         dispose(context)
@@ -30,7 +29,7 @@ class BatteryMonitor(private val scanW: ScanwedgePlugin, private val log: Logger
         if (isReceiverRegistered) {
             context?.unregisterReceiver(batteryDataReceiver)
             isReceiverRegistered = false
-            Log.d(TAG, "BatteryMonitor: Receiver unregistered")
+            log?.d(TAG, "BatteryMonitor: Receiver unregistered")
         }
     }
 /*
